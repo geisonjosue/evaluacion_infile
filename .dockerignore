@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Entorno virtual
+venv/
+.env
+
+# Archivos de configuración locales
+.idea/
+.vscode/
+
+# Archivos de logs
+*.log
+
+# Carpeta de dependencias opcionales
+node_modules/
+
+# Archivos estáticos subidos
+/static/*
+!static/.gitkeep

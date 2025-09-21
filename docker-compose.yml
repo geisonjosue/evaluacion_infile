@@ -1,0 +1,54 @@
+# Version de la imagen
+version: '3.9'
+
+# Servicios
+services:
+  backend:
+    build: .
+    container_name: infile_backend
+    env_file:
+      - .env    
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    networks:
+      - infile_net
+
+  db:
+    image: postgres:17
+    container_name: infile_db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=infile_news
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - infile_net
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: infile_pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    networks:
+      - infile_net
+
+volumes:
+  postgres_data:
+
+networks:
+  infile_net:

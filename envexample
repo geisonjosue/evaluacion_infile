@@ -1,0 +1,28 @@
+# App
+APP_NAME=INFILE News API
+ENV=dev
+
+# Configuracion de archivos estaticos
+STATIC_DIR=static
+
+# Security
+SECRET_KEY=llave_secreta
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+EMAIL_TOKEN_EXPIRE_MINUTES=60
+ALGORITHM=HS256
+RESET_TOKEN_EXPIRE_MINUTES=30
+
+# Database
+DATABASE_URL=postgresql+psycopg2://postgres:admin@db:5432/infile_news
+
+# SMTP
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=user@gmail.com
+SMTP_PASSWORD='password_app'
+SMTP_TLS=true
+EMAILS_FROM=user@gmail.com
+
+
+# Frontend base URL para links de confirmacion
+FRONTEND_BASE_URL=http://localhost:8001
